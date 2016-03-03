@@ -6,11 +6,19 @@
 #include "Event.h"
 using namespace std;
 
+//Unable to get the const int of the array working
 
 void Venue::addEvent(const int t , string n)
 {
-	Event ScheduledEvents[t] = n; //adds an event at a certain time and title to the event list in the array
-	
+	if (Venue::validTime(t) == false)
+	{
+		cout << "Couldn't schedule event. :( " << endl;
+	}
+	else
+	{
+		Event ScheduledEvents[t] = n; //adds an event at a certain time and title to the event list in the array
+		cout << "Event scheduled!" << endl;
+	}
 }
 
 bool Venue::validTime(int time)
@@ -27,13 +35,10 @@ Event Venue::findEvent(string name) //searches the series of arrays to find the 
 {
 	for (int i = 0; i < 11; i++)
 	{
-		if (Event ScheduledEvents[i].compare(name) != 0)
+		if (Event ScheduledEvents[i].compare(name) == 0) //uses compare function to see if the strings are similar
 		{
-
+			cout << "The time is " << i << endl;
 		}
-		else
-		{
-
-		}
+	
 	}
-	}
+}
