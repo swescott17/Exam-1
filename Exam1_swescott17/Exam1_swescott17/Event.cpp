@@ -8,7 +8,17 @@
 using namespace std;
 
 
+Event::Event()
+{
+	time = 0;  //the blank constructor
+	title = "The First";
+}
 
+Event::Event(int t, string n)
+{
+	time = t; //the argument constructor
+	title = n;
+}
 int Event::getTime()
 {
 	return time;//returns time
